@@ -107,7 +107,7 @@ for Round = 1:Games
         
         if DireSkill+Random >RadiantSkill    %Dire Win
             %ELO Formula
-            MMRGain = round(50*(1-DireChance));
+            MMRGain = 50*(1-DireChance);
             %MMRGain = int64((RadiantMMR-DireMMR))/75+25;
             for number = 1:5
                 if PlayerMMR(Count+RadiantTeam(number)) >MMRGain 
@@ -133,8 +133,7 @@ for Round = 1:Games
             end
             Dire = Dire + 1;
         else                    %Radiant Win
-            MMRGain = round(50*(1-RadiantChance));
-            %MMRGain = int64(DireMMR-RadiantMMR)/75+25;
+            MMRGain = int64(DireMMR-RadiantMMR)/75+25;
             for number = 1:5
                 if PlayerMMR(Count+DireTeam(number)) >MMRGain 
                     PlayerMMR(Count+DireTeam(number))=PlayerMMR(Count+DireTeam(number))-MMRGain;
